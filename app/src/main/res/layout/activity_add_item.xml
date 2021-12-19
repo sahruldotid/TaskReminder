@@ -18,6 +18,7 @@
             android:layout_width="18dp"
             android:layout_height="33dp"
             android:onClick="cancel"
+            android:tint="@color/white"
             android:src="@drawable/cancel" />
 
         <TextView
@@ -26,7 +27,7 @@
             android:layout_alignParentEnd="true"
             android:onClick="save"
             android:text="Save"
-            android:textColor="#6D6D6D"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
     </RelativeLayout>
