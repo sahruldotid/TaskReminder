@@ -1,14 +1,9 @@
 package com.syahrul.taskreminder;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,11 +19,15 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.daimajia.swipe.SwipeLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,10 +37,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     int id;
-    public static ListView mListView, checkListView;
+    public ListView mListView, checkListView;
     public static List<Item> items = new ArrayList<>();
     public static List<Item> tmp = new ArrayList<>();
     public static ArrayList<Category> cat = new ArrayList<>();
+    public static String ANDROID_CHANNEL_ID = "com.syahrul.taskreminder";
+    public static String ANDROID_CHANNEL_NAME = "ANDROID CHANNEL";
 
 
     TextView nb_tasks;
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         aff_passed = true;
         aff_ondate = true;
         id = 0;
-
         CheckBox checkToDo = (CheckBox) findViewById(R.id.switch_todo);
         checkToDo.setChecked(true);
         checkToDo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 affListCorresponding();
             }
         });
-       getData();
+        getData();
         getCatData();
         if (cat.size() == 0)
             cat.add(new Category("none", Color.parseColor("#262D3B")));
@@ -152,8 +152,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor resultSet = mydatabase.rawQuery("Select * from tasks", null);
         resultSet.moveToFirst();
         int count = 0;
-        while (count < resultSet.getCount())
-        {
+        while (count < resultSet.getCount()) {
             String title = resultSet.getString(resultSet.getColumnIndex("Titre"));
             String date = resultSet.getString(resultSet.getColumnIndex("Date"));
             String status = resultSet.getString(resultSet.getColumnIndex("Status"));
@@ -241,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         mydatabase.execSQL("DROP TABLE IF EXISTS cats");
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS cats(Name VARCHAR, Color VARCHAR);");
         for (int i = 0; i < cat.size(); i++) {
-            query = "'" + cat.get(i).getName() + "','" +  String.valueOf(cat.get(i).getColor()) + "'";
+            query = "'" + cat.get(i).getName() + "','" + String.valueOf(cat.get(i).getColor()) + "'";
             mydatabase.execSQL("INSERT INTO cats VALUES(" + query + ");");
         }
     }
@@ -261,14 +260,14 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v
      */
-        public void add(View v) {
-            Intent intentMain = new Intent(MainActivity.this, AddItemActivity.class);
-            startActivityForResult(intentMain, 1);
-        }
+    public void add(View v) {
+        Intent intentMain = new Intent(MainActivity.this, AddItemActivity.class);
+        startActivityForResult(intentMain, 1);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
                 String title = data.getStringExtra("title");
@@ -533,9 +532,25 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder.setColor(color);
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder.setChannelId("taskreminder");
+        }
         affListCorresponding();
         return builder.build();
     }
+    /*
+    private  void createNotificationChannel(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "android channel";
+            String description = "Channel for task reminder";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("taskreminder", name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+    */
 
     /**
      * Renvoies l'arraylist contenant les catégries
@@ -597,4 +612,20 @@ public class MainActivity extends AppCompatActivity {
         checkCategories();
     }
 
+    public void logout(View v) {
+        FirebaseAuth firebaseAuth;
+        FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() == null) {
+                    //Do anything here which needs to be done after signout is complete
+                     startActivity(new Intent(MainActivity.this, AuthActivity.class));
+                }
+            }
+        };
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.addAuthStateListener(authStateListener);
+        firebaseAuth.signOut();
+    }
 }
