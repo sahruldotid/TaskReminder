@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
 
@@ -45,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView nb_tasks;
     public static boolean aff_done, aff_todo, aff_passed, aff_ondate;
+
+    @Override
+    public void onBackPressed() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

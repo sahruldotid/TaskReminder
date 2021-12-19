@@ -68,7 +68,7 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 findViewById(R.id.textBar).setBackgroundColor(MainActivity.getCat().get(position).getColor());
-                findViewById(R.id.title).setBackgroundColor(MainActivity.getCat().get(position).getColor());
+//                findViewById(R.id.title).setBackgroundColor(MainActivity.getCat().get(position).getColor());
             }
 
             @Override

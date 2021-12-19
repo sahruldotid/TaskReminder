@@ -48,9 +48,9 @@ public class EditItemActivity extends AppCompatActivity {
         int selection = 0;
         while (i < MainActivity.getCat().size()) {
             if (categorie.equals(MainActivity.getCat().get(i).getName())) {
-                ((RelativeLayout) findViewById(R.id.textBar)).setBackgroundColor(MainActivity.getCat().get(i).getColor());
+//                ((RelativeLayout) findViewById(R.id.textBar)).setBackgroundColor(MainActivity.getCat().get(i).getColor());
                 ((RelativeLayout) findViewById(R.id.textBar1)).setBackgroundColor(MainActivity.getCat().get(i).getColor());
-                ((TextView) findViewById(R.id.title)).setBackgroundColor(MainActivity.getCat().get(i).getColor());
+//                ((TextView) findViewById(R.id.title)).setBackgroundColor(MainActivity.getCat().get(i).getColor());
                 selection = i;
             }
             i++;
@@ -78,9 +78,9 @@ public class EditItemActivity extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((RelativeLayout) findViewById(R.id.textBar)).setBackgroundColor(MainActivity.getCat().get(position).getColor());
+//                ((RelativeLayout) findViewById(R.id.textBar)).setBackgroundColor(MainActivity.getCat().get(position).getColor());
                 ((RelativeLayout) findViewById(R.id.textBar1)).setBackgroundColor(MainActivity.getCat().get(position).getColor());
-                ((TextView) findViewById(R.id.title)).setBackgroundColor(MainActivity.getCat().get(position).getColor());
+//                ((TextView) findViewById(R.id.title)).setBackgroundColor(MainActivity.getCat().get(position).getColor());
             }
 
             @Override

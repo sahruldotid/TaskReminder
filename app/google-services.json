@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448669829190",
+    "project_id": "task-reminder-2d1d2",
+    "storage_bucket": "task-reminder-2d1d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448669829190:android:937485e2dda5e2ea32a247",
+        "android_client_info": {
+          "package_name": "com.syahrul.taskreminder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448669829190-50rb8cqrrnnm40ifqcfusec1p1d7km96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiqGyP1UqEhARTltxconCZYzABLDQjTsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448669829190-50rb8cqrrnnm40ifqcfusec1p1d7km96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

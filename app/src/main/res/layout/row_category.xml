@@ -8,14 +8,15 @@
         android:id="@+id/bottom_wrapper"
         android:layout_width="60dp"
         android:layout_height="match_parent"
-        android:background="#FF4543"
+        android:background="#F38171"
         android:orientation="horizontal">
         <ImageView
             android:contentDescription="delete"
             android:id="@+id/todoB"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_margin="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
             android:onClick="delete"
             android:src="@drawable/delete" />
         <!--What you want to show-->
@@ -33,6 +34,7 @@
             android:layout_weight="22"
             android:layout_height="match_parent"
             android:background="#456345" />
+
         <TextView
             android:layout_weight="1"
             android:padding="5dp"

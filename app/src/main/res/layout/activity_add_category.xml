@@ -11,15 +11,16 @@
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/bgtop">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:paddingLeft="10dp"
-            android:layout_centerVertical="true"
+            android:layout_width="18dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:onClick="finish"
-            android:src="@drawable/cancel"/>
+            android:src="@drawable/cancelwhite"/>
+
         <TextView
             android:id="@+id/nb_cat"
             android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18dp"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
     <RelativeLayout

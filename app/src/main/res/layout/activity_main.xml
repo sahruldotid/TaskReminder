@@ -16,18 +16,29 @@
             android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary">
+            android:background="@drawable/bgtop">
+
+
+            <TextView
+                android:id="@+id/cat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Task Reminder"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/nb_tasks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:padding="15dp"
                 android:text="nb Tasks"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -49,13 +60,13 @@
                 android:id="@+id/listView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true" />
 
             <ImageView
                 android:id="@+id/add_btn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
@@ -68,12 +79,13 @@
                 android:onClick="add"
                 android:src="@drawable/plus" />
         </RelativeLayout>
+
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/left_drawer"
-        android:layout_width="200dp"
-        android:layout_height="fill_parent"
+        android:layout_width="235dp"
+        android:layout_height="match_parent"
         android:layout_gravity="start|left"
         android:background="#FFFFFF"
         android:fillViewport="true"
@@ -83,14 +95,16 @@
             android:id="@+id/top2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary">
+            android:background="@drawable/bgtopnav">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Settings"
-                android:textAlignment="center"
+                android:paddingLeft="10dp"
+                android:text="Task Reminder"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="10dp"
+                android:layout_marginVertical="12dp"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -109,7 +123,7 @@
             android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="2dp">
+            android:paddingLeft="10dp">
 
             <ImageView
                 android:id="@+id/doneT"
@@ -124,7 +138,8 @@
                 android:clickable="false"
                 android:padding="10dp"
                 android:text="Status"
-                android:textSize="20sp" />
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -134,13 +149,19 @@
             android:id="@+id/switch_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Done" />
+            android:text="Done"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
 
         <CheckBox
             android:id="@+id/switch_todo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="To do" />
+            android:text="To do"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
 
 
 
@@ -148,13 +169,13 @@
             android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="2dp">
+            android:paddingLeft="10dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_date_range_black_24dp" />
+                android:src="@drawable/icondate" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,7 +183,8 @@
                 android:clickable="false"
                 android:padding="10dp"
                 android:text="Date"
-                android:textSize="20sp" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -171,56 +193,104 @@
             android:id="@+id/switch_passed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Passed" />
+            android:text="Passed"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
 
         <CheckBox
             android:id="@+id/switch_ondate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Up to Date" />
+            android:text="Up to Date"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"/>
+
         <LinearLayout
             android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="2dp">
+            android:paddingLeft="10dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/label" />
+                android:src="@drawable/iconcat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="addCategorie"
                 android:padding="10dp"
                 android:text="Categories"
-                android:textSize="20sp" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:onClick="addCategorie"
-                android:src="@drawable/config" />
         </LinearLayout>
-
-
 
         <ListView
             android:id="@+id/checkCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true">
-
-
         </ListView>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#DFDFDF" />
+            android:layout_height="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/add" />
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:onClick="addCategorie"
+                android:text="Add New Category"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="355dp"/>
+
+        <LinearLayout
+            android:background="#EFEFEF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp">
+
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/logout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:padding="10dp"
+                android:text="Logout"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

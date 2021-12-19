@@ -8,6 +8,7 @@
         android:id="@+id/checkCat2"
         android:checked="true"
         android:onClick="catCheck"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:buttonTint="#7180F3"/>
 
 </LinearLayout>
