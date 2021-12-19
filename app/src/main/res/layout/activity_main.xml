@@ -270,6 +270,7 @@
                 android:background="#EFEFEF"
                 android:orientation="horizontal"
                 android:paddingLeft="8dp"
+                android:onClick="logout"
                 android:layout_alignParentBottom="true">
 
                 <ImageView
