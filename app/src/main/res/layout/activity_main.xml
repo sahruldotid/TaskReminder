@@ -2,9 +2,9 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -23,12 +23,12 @@
                 android:id="@+id/cat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="@string/task_reminder"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/nb_tasks"
@@ -100,11 +100,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="12dp"
+                android:layout_marginLeft="10dp"
                 android:paddingLeft="10dp"
                 android:text="Task Reminder"
                 android:textAlignment="textStart"
-                android:layout_marginLeft="10dp"
-                android:layout_marginVertical="12dp"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -120,9 +120,9 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#EFEFEF"
             android:paddingLeft="10dp">
 
             <ImageView
@@ -139,36 +139,34 @@
                 android:padding="10dp"
                 android:text="Status"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
 
         <CheckBox
             android:id="@+id/switch_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="Done"
             android:textSize="12dp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:textStyle="bold" />
 
         <CheckBox
             android:id="@+id/switch_todo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="To do"
             android:textSize="12dp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"/>
-
+            android:textStyle="bold" />
 
 
         <LinearLayout
-            android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#EFEFEF"
             android:paddingLeft="10dp">
 
             <ImageView
@@ -193,24 +191,24 @@
             android:id="@+id/switch_passed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="Passed"
             android:textSize="12dp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:textStyle="bold" />
 
         <CheckBox
             android:id="@+id/switch_ondate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="Up to Date"
             android:textSize="12dp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:background="#EFEFEF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#EFEFEF"
             android:paddingLeft="10dp">
 
             <ImageView
@@ -233,12 +231,11 @@
             android:id="@+id/checkCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true">
-        </ListView>
+            android:fillViewport="true"></ListView>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -252,45 +249,48 @@
                 android:src="@drawable/add" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:textStyle="bold"
                 android:onClick="addCategorie"
-                android:text="Add New Category"/>
+                android:text="Add New Category"
+                android:textSize="14dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
 
-        <View
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="355dp"/>
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:background="#EFEFEF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="logout"
-            android:paddingLeft="8dp">
-
-            <ImageView
-                android:id="@+id/logout"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/logout" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
-                android:padding="10dp"
-                android:text="Logout"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:background="#EFEFEF"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:layout_alignParentBottom="true">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/logout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:padding="10dp"
+                    android:text="Logout"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
