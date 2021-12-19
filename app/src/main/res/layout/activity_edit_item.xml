@@ -22,18 +22,16 @@
                 android:layout_width="18dp"
                 android:layout_height="33dp"
                 android:onClick="cancel"
-                android:tint="@color/white"
-                android:src="@drawable/cancel" />
-
+                android:src="@drawable/cancel"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:onClick="save"
-                android:text="Save"
-                android:textColor="@color/white"
+                android:textColor="#6D6D6D"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:text="Save"
+                android:onClick="save"/>
         </RelativeLayout>
 
         <EditText
