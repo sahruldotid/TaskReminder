@@ -22,11 +22,12 @@
                 android:layout_width="18dp"
                 android:layout_height="33dp"
                 android:onClick="cancel"
-                android:src="@drawable/cancel"/>
+                android:tint="@color/white"
+                android:src="@drawable/cancel" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#6D6D6D"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_alignParentEnd="true"
