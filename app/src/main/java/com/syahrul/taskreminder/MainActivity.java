@@ -231,9 +231,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Sauvegarde les catégories dans la db
-     */
     public void saveCategory() {
         String query;
         SQLiteDatabase mydatabase = openOrCreateDatabase("todolist", MODE_PRIVATE, null);
@@ -245,21 +242,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Ouvre le menu settings pour l'affichage et les catégories
-     *
-     * @param V
-     */
+
     public void settings(View V) {
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.openDrawer(Gravity.LEFT);
     }
 
-    /**
-     * Ouvre l'activité pour ajouter un Item
-     *
-     * @param v
-     */
+
     public void add(View v) {
         Intent intentMain = new Intent(MainActivity.this, AddItemActivity.class);
         startActivityForResult(intentMain, 1);
@@ -319,9 +308,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Affiche en rouge la date de la l'item si la date est déjà passée
-     */
+
     public void checkDate() {
         int i = 0;
         Date d;
@@ -340,12 +327,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Ajoute un item à la liste des items
-     *
-     * @param item
-     * @throws ParseException
-     */
+
     public void addToList(Item item) throws ParseException {
         items.add(item);
         checkDate();
