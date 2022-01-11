@@ -21,4 +21,5 @@
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
     <string name="task_reminder">Task Reminder</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

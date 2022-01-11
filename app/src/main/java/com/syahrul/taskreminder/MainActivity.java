@@ -655,5 +655,9 @@ public class MainActivity extends AppCompatActivity {
         //Menampilkan custom dialog
         dialog.show();
     }
+
+    public void openMap(View v){
+        startActivity(new Intent(this, MapsActivity.class));
+    }
 }
 
