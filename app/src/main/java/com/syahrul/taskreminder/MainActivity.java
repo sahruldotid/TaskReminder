@@ -2,6 +2,7 @@ package com.syahrul.taskreminder;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -12,13 +13,17 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -610,4 +615,45 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(authStateListener);
         firebaseAuth.signOut();
     }
+
+
+
+    public void showAbout(View v){
+        final Dialog dialog = new Dialog(this);
+        //Mengeset judul dialog
+        dialog.setTitle("About");
+
+        //Mengeset layout
+        dialog.setContentView(R.layout.about_dialog);
+
+        //Membuat agar dialog tidak hilang saat di click di area luar dialog
+         dialog.setCanceledOnTouchOutside(true);
+
+        //Membuat dialog agar berukuran responsive
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        dialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+//        Button cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
+//        Button saveButton = (Button) dialog.findViewById(R.id.button_save);
+//
+//        saveButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Data saved", Toast.LENGTH_SHORT).show();
+//                dialog.dismiss();
+//            }
+//        });
+
+//        cancelButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+
+        //Menampilkan custom dialog
+        dialog.show();
+    }
 }
+

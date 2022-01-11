@@ -28,7 +28,8 @@
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="showAbout"/>
 
             <TextView
                 android:id="@+id/nb_tasks"
